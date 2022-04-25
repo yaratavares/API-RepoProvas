@@ -1,10 +1,11 @@
 import { Router } from "express";
-import validateSchemaMiddleware from "../middlewares/schemaValidateMiddleware.js";
-import authSchema from "../schemas/authSchema.js";
+import tokenValideMiddleware from "../middlewares/tokenValidateMiddleware.js";
 import authRouter from "./authRouter.js";
+import filterRouter from "./filterRouter.js";
 
 const router = Router();
 
-router.use(validateSchemaMiddleware(authSchema), authRouter);
+router.use(authRouter);
+router.use(tokenValideMiddleware, filterRouter);
 
 export default router;
