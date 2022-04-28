@@ -51,9 +51,14 @@ async function createSession(logUser: User) {
 export async function verifyToken(token: string) {
   const session = await sessionRepository.findByToken(token);
 
-  const secretKey = process.env.JWT_SECRET;
+  if (!session) {
+    throw errors.unauthorized();
+  }
 
-  if (!session || !jwt.verify(token, secretKey)) {
+  try {
+    const secretKey = process.env.JWT_SECRET;
+    jwt.verify(token, secretKey);
+  } catch (err) {
     throw errors.unauthorized();
   }
 
