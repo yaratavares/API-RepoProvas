@@ -65,4 +65,8 @@ export async function verifyToken(token: string) {
   return session.userId;
 }
 
-export default { createSession, insertNewUser };
+function resetDatabase() {
+  return authRepository.truncate();
+}
+
+export default { createSession, insertNewUser, resetDatabase };

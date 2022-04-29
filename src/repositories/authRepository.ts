@@ -11,4 +11,8 @@ function findByEmail(email: string) {
   return client.user.findFirst({ where: { email } });
 }
 
-export default { insert, findByEmail };
+function truncate() {
+  return client.$executeRaw`TRUNCATE TABLE users, sessions`;
+}
+
+export default { insert, findByEmail, truncate };
