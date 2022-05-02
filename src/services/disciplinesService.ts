@@ -1,7 +1,9 @@
 import disciplinesRepository from "../repositories/disciplinesRepository.js";
 
-async function filterDisciplines() {
-  const result = await disciplinesRepository.getObjectAllDisciplines();
+async function filterDisciplines(inputSearch: string | null) {
+  const result = await disciplinesRepository.getObjectAllDisciplines(
+    inputSearch
+  );
 
   return result;
 }

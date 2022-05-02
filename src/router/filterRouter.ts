@@ -9,6 +9,12 @@ filterRouter.get(
   tokenValideMiddleware,
   disciplinesController.getDisciplines
 );
+
+filterRouter.get(
+  "/disciplines/:words",
+  tokenValideMiddleware,
+  disciplinesController.getDisciplines
+);
 filterRouter.get(
   "/teachers",
   tokenValideMiddleware,

@@ -1,6 +1,6 @@
 import client from "../database.js";
 
-function getObjectAllDisciplines() {
+function getObjectAllDisciplines(inputSearch: string | null) {
   return client.term.findMany({
     select: {
       number: true,
@@ -26,6 +26,12 @@ function getObjectAllDisciplines() {
                 },
               },
             },
+          },
+        },
+        where: {
+          name: {
+            startsWith: inputSearch !== null ? inputSearch : "",
+            mode: "insensitive",
           },
         },
       },
@@ -65,4 +71,7 @@ function getObjectAllTeachers() {
   });
 }
 
-export default { getObjectAllDisciplines, getObjectAllTeachers };
+export default {
+  getObjectAllDisciplines,
+  getObjectAllTeachers,
+};

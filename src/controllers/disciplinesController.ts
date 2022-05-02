@@ -1,8 +1,10 @@
 import { Response, Request } from "express";
-import dataFilterService from "../services/dataFilterService.js";
+import dataFilterService from "../services/disciplinesService.js";
 
 async function getDisciplines(req: Request, res: Response) {
-  const object = await dataFilterService.filterDisciplines();
+  const { words } = req.params;
+
+  const object = await dataFilterService.filterDisciplines(words);
 
   res.send(object);
 }
