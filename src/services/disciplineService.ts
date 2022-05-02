@@ -8,10 +8,4 @@ async function filterDisciplines(inputSearch: string | null) {
   return result;
 }
 
-async function filterTeachers(inputSearch: string | null) {
-  const result = await disciplinesRepository.getObjectAllTeachers(inputSearch);
-
-  return result;
-}
-
-export default { filterDisciplines, filterTeachers };
+export default { filterDisciplines };
