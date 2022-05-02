@@ -31,6 +31,12 @@ async function createSession(logUser: User) {
     throw errors.unauthorized();
   }
 
+  const token = verifyOrCreateSession(user);
+
+  return token;
+}
+
+export async function verifyOrCreateSession(user: User) {
   const session = await sessionRepository.findByUserId(user.id);
 
   const secretKey = process.env.JWT_SECRET;
@@ -44,7 +50,6 @@ async function createSession(logUser: User) {
   }
 
   await sessionRepository.create({ userId: user.id, token });
-
   return token;
 }
 
