@@ -10,7 +10,9 @@ async function getDisciplines(req: Request, res: Response) {
 }
 
 async function getTeachers(req: Request, res: Response) {
-  const object = await dataFilterService.filterTeachers();
+  const { words } = req.params;
+
+  const object = await dataFilterService.filterTeachers(words);
 
   res.send(object);
 }

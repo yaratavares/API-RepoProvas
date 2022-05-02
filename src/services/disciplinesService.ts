@@ -8,8 +8,8 @@ async function filterDisciplines(inputSearch: string | null) {
   return result;
 }
 
-async function filterTeachers() {
-  const result = await disciplinesRepository.getObjectAllTeachers();
+async function filterTeachers(inputSearch: string | null) {
+  const result = await disciplinesRepository.getObjectAllTeachers(inputSearch);
 
   return result;
 }

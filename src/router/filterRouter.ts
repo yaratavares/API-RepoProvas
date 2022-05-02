@@ -6,18 +6,23 @@ const filterRouter = Router();
 
 filterRouter.get(
   "/disciplines",
-  tokenValideMiddleware,
+
   disciplinesController.getDisciplines
 );
 
 filterRouter.get(
   "/disciplines/:words",
-  tokenValideMiddleware,
+
   disciplinesController.getDisciplines
 );
 filterRouter.get(
+  "/teachers/:words",
+
+  disciplinesController.getTeachers
+);
+filterRouter.get(
   "/teachers",
-  tokenValideMiddleware,
+
   disciplinesController.getTeachers
 );
 

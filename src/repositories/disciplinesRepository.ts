@@ -39,7 +39,7 @@ function getObjectAllDisciplines(inputSearch: string | null) {
   });
 }
 
-function getObjectAllTeachers() {
+function getObjectAllTeachers(inputSearch: string | null) {
   return client.teacher.findMany({
     select: {
       name: true,
@@ -66,6 +66,12 @@ function getObjectAllTeachers() {
             },
           },
         },
+      },
+    },
+    where: {
+      name: {
+        startsWith: inputSearch !== null ? inputSearch : "",
+        mode: "insensitive",
       },
     },
   });
