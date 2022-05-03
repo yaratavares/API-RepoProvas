@@ -8,8 +8,10 @@ function getObjectAllTeachers(inputSearch: string | null) {
         select: {
           tests: {
             select: {
+              id: true,
               name: true,
               pdfUrl: true,
+              views: true,
               category: {
                 select: {
                   name: true,

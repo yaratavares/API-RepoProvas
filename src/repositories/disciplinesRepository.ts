@@ -16,8 +16,10 @@ function getObjectAllDisciplines(inputSearch: string | null) {
               },
               tests: {
                 select: {
+                  id: true,
                   name: true,
                   pdfUrl: true,
+                  views: true,
                   category: {
                     select: {
                       name: true,
