@@ -10,9 +10,7 @@ async function getFilterTeachers(req: Request, res: Response) {
 }
 
 async function getTeachersInDiscipline(req: Request, res: Response) {
-  const { id } = req.params;
-
-  const teachers = await teacherService.getTeachers(Number(id));
+  const teachers = await teacherService.getTeachers();
 
   res.send(teachers);
 }

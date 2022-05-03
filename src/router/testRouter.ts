@@ -7,9 +7,10 @@ import testSchema from "../schemas/testSchema.js";
 const testRouter = Router();
 
 testRouter.post(
-  "/disciplines",
+  "/tests",
   validateSchemaMiddleware(testSchema),
   testController.create
 );
+testRouter.post("/tests/:id", testController.countLike);
 
 export default testRouter;

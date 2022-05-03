@@ -12,4 +12,25 @@ function create(test: Test) {
   });
 }
 
-export default { create };
+function findTest(id: number) {
+  return client.test.findFirst({
+    where: {
+      id,
+    },
+  });
+}
+
+function updateViews(id: number) {
+  return client.test.update({
+    where: {
+      id,
+    },
+    data: {
+      views: {
+        increment: 1,
+      },
+    },
+  });
+}
+
+export default { create, findTest, updateViews };

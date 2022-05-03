@@ -6,8 +6,8 @@ async function filterTeachers(inputSearch: string | null) {
   return result;
 }
 
-async function getTeachers(disciplineId: number) {
-  return teachersRepository.getTeachers(disciplineId);
+async function getTeachers() {
+  return teachersRepository.getTeachers();
 }
 
 export default { filterTeachers, getTeachers };
