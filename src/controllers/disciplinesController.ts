@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import disciplineService from "../services/disciplineService.js";
 
-async function getDisciplines(req: Request, res: Response) {
+async function getFilterDisciplines(req: Request, res: Response) {
   const { words } = req.params;
 
   const object = await disciplineService.filterDisciplines(words);
@@ -9,4 +9,10 @@ async function getDisciplines(req: Request, res: Response) {
   res.send(object);
 }
 
-export default { getDisciplines };
+async function getDisciplines(req: Request, res: Response) {
+  const disciplines = await disciplineService.getDisciplines();
+
+  res.send(disciplines);
+}
+
+export default { getFilterDisciplines, getDisciplines };

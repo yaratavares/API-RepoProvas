@@ -39,4 +39,8 @@ function getObjectAllDisciplines(inputSearch: string | null) {
   });
 }
 
-export default { getObjectAllDisciplines };
+function getDisciplines() {
+  return client.discipline.findMany();
+}
+
+export default { getObjectAllDisciplines, getDisciplines };

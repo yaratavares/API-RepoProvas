@@ -6,25 +6,25 @@ import tokenValideMiddleware from "../middlewares/tokenValidateMiddleware.js";
 const filterRouter = Router();
 
 filterRouter.get(
-  "/disciplines",
+  "/filter/disciplines",
   tokenValideMiddleware,
-  disciplinesController.getDisciplines
+  disciplinesController.getFilterDisciplines
 );
 
 filterRouter.get(
-  "/disciplines/:words",
+  "/filter/disciplines/:words",
   tokenValideMiddleware,
-  disciplinesController.getDisciplines
+  disciplinesController.getFilterDisciplines
 );
 filterRouter.get(
-  "/teachers/:words",
+  "/filter/teachers/:words",
   tokenValideMiddleware,
-  teachersController.getTeachers
+  teachersController.getFilterTeachers
 );
 filterRouter.get(
-  "/teachers",
+  "/filter/teachers",
   tokenValideMiddleware,
-  teachersController.getTeachers
+  teachersController.getFilterTeachers
 );
 
 export default filterRouter;

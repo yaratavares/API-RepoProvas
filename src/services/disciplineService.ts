@@ -8,4 +8,8 @@ async function filterDisciplines(inputSearch: string | null) {
   return result;
 }
 
-export default { filterDisciplines };
+async function getDisciplines() {
+  return disciplinesRepository.getDisciplines();
+}
+
+export default { filterDisciplines, getDisciplines };

@@ -38,4 +38,22 @@ function getObjectAllTeachers(inputSearch: string | null) {
   });
 }
 
-export default { getObjectAllTeachers };
+function getTeachers(disciplineId: number) {
+  return client.teacherDiscipline.findMany({
+    where: {
+      discipline: {
+        id: disciplineId,
+      },
+    },
+    select: {
+      id: true,
+      teacher: {
+        select: {
+          name: true,
+        },
+      },
+    },
+  });
+}
+
+export default { getObjectAllTeachers, getTeachers };

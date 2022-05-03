@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import teacherService from "../services/teacherService.js";
 
-async function getTeachers(req: Request, res: Response) {
+async function getFilterTeachers(req: Request, res: Response) {
   const { words } = req.params;
 
   const object = await teacherService.filterTeachers(words);
@@ -9,4 +9,12 @@ async function getTeachers(req: Request, res: Response) {
   res.send(object);
 }
 
-export default { getTeachers };
+async function getTeachersInDiscipline(req: Request, res: Response) {
+  const { id } = req.params;
+
+  const teachers = await teacherService.getTeachers(Number(id));
+
+  res.send(teachers);
+}
+
+export default { getFilterTeachers, getTeachersInDiscipline };
