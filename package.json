@@ -4,6 +4,9 @@
   "description": "repositório de provas",
   "main": "src/app.js",
   "type": "module",
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
