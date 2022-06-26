@@ -10,9 +10,9 @@ import testRouter from "./testRouter.js";
 
 const router = Router();
 
+router.use(filterRouter);
 router.use(authRouter);
 router.use(githubRouter);
-router.use(filterRouter);
 router.use(testRouter);
 router.use(disciplineRouter);
 router.use(categoryRouter);

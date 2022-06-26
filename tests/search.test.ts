@@ -1,6 +1,6 @@
 import supertest from "supertest";
 import app from "../src/app";
-import createDataDisciplines from "./factories/createDataDisciplines";
+import createDataDisciplines from "./factories/createDataDisciplines.js";
 import client from "../src/database.js";
 
 beforeEach(truncateTables);
